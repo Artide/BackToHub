@@ -17,6 +17,7 @@ class Main extends PluginBase implements Listener{
 	$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getLogger()->info("BackToHub - Enabled!");
 		$this->saveDefaultConfig();
+		$this->FastTransfer = FastTransfer::getInstance();
 	}
 
 	public function onDisable(){
@@ -26,17 +27,32 @@ class Main extends PluginBase implements Listener{
 
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args){
 		if($sender instanceof Player){
+			$check = $config->get("Hub-Type");
+			$msg = $config->get("Message");
+			$world = $config->get("Hub-World");
 			if(strtolower($command->getName('hub'))){
 			if($check == "world"){
 			$sender->sendTip($msg);
 			$sender->teleport($world->getSafeSpawn());
-}else{
-if($check == "server"){
-$this->getServer()->dispathCommand($sender, "transfer" $sender->getName, $ip $port)
-}else{
 
-
-			
-	
+			}else{
+				if($check == "server"){
+					if(!$this->FastTransfer){
+						$this->getLogger()->info(TextFormat::RED."Fast Transfer Must Be Installed!");	
+					}else{
+						$this->getServer()->dispathCommand($sender, "transfer" $sender->getName, $ip $port);
+						$this->getLogger()->info(TextFormat::GREEN."Sent $sender to" . $ip . ":" . $port . "!");
+					}
+					}else{
+					$this->getLogger()->info(TextFormat::RED."Error In Config!");
+					$this->getLogger()->info(TextFormat::RED."Error: Hub-Type Unknown!");
+					$this->getLogger()->info(TextFormat::RED."Optional Hub Types:");
+					$this->getLogger()->info(TextFormat::RED."world, server");
+					}
+				}
+			}
+		}else{
+			$this->getLogger()->info(TextFormat::RED."This command can only be ran in-game!");	
 		}
+	}
 }
