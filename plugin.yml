@@ -3,3 +3,8 @@ main: LegacyDEVS
 api: [1.12.0]
 author: LegacyDEVS
 version: 1.0.0
+permissions:
+  backtohub:
+    default: true
+    description: "Teleports the player to hub"
+  
