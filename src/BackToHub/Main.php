@@ -42,7 +42,7 @@ class Main extends PluginBase implements Listener{
 					if(!$this->FastTransfer){
 						$this->getLogger()->info(TextFormat::RED."Fast Transfer Must Be Installed!");	
 					}else{
-						$this->getServer()->dispathCommand($sender, "transfer" $sender->getName, $ip $port);
+						$this->getServer()->dispatchCommand($sender, "transfer" $sender->getName, $ip $port);
 						$this->getLogger()->info(TextFormat::GREEN."Sent $sender to" . $ip . ":" . $port . "!");
 					}
 					}else{
