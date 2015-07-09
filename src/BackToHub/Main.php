@@ -21,7 +21,7 @@ class Main extends PluginBase implements Listener{
 	}
 
 	public function onDisable(){
-		$this->getLogger()->info(“BackToHub - Enabled!");
+		$this->getLogger()->info("BackToHub - Enabled!");
 		$this->saveDefaultConfig();
 	}
 
