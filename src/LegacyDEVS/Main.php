@@ -1,6 +1,6 @@
 <?php 
 
-namespace BackToHub;
+namespace LegacyDEVS\BackToHub;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
