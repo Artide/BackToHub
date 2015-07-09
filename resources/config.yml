@@ -1,0 +1,19 @@
+# The Hub-Type means what should happen when the player does /hub
+# example: if the player does /hub and the hub type is server, then it will take
+# the player to the specfied Hub Server IP and Port
+# If the Hub-Type is world, the player will be sent to the specified world's spawn
+#FastTransfer must be installed if the Hub-Type is server
+
+Hub-Type: "world"
+
+# This is the world the player will be sent to if the Hub-Type is world
+Hub-World: "world"
+
+# This is the message that will be sent to the player when they go to hub
+Message: "Teleporting to Hub..."
+
+# If the Hub-Type is server, this is the IP the player will be sent to
+Hub-Server-IP: "cf.mcpespot.com"
+Hub-Server-Port: "19132"
+
+
