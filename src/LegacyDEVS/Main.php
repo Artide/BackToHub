@@ -30,6 +30,8 @@ class Main extends PluginBase implements Listener{
 			$check = $config->get("Hub-Type");
 			$msg = $config->get("Message");
 			$world = $config->get("Hub-World");
+			$ip = $config->get("Hub-Server-IP");
+			$port = $config->get("Hub-Server-Port");
 			if(strtolower($command->getName('hub'))){
 			if($check == "world"){
 			$sender->sendTip($msg);
