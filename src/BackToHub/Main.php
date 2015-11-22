@@ -13,11 +13,13 @@ use pocketmine\command\Command;
 
 class Main extends PluginBase implements Listener{
 
+	private $FastTransfer;
+
 	public function onEnable(){
 	$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getLogger()->info("BackToHub - Enabled!");
 		$this->saveDefaultConfig();
-		$this->FastTransfer = FastTransfer::getInstance();
+		$this->FastTransfer = $this->getServer()->getPluginManager()->getPlugin("FastTransfer");//fast transfer doesn't have getInstance() function
 	}
 
 	public function onDisable(){
@@ -42,8 +44,8 @@ class Main extends PluginBase implements Listener{
 					if(!$this->FastTransfer){
 						$this->getLogger()->info(TextFormat::RED."Fast Transfer Must Be Installed!");	
 					}else{
-						$this->getServer()->dispatchCommand(CommandSender $sender, "transfer" $sender->getName(), $ip $port);
-						$this->getLogger()->info(TextFormat::GREEN."Sent $sender to" . $ip . ":" . $port . "!");
+						$this->getServer()->dispatchCommand(CommandSender $sender, "transfer " . $sender->getName() . " " . $ip . $port);
+						$this->getLogger()->info(TextFormat::GREEN."Sent $sender to " . $ip . ":" . $port . "!");
 					}
 					}else{
 					$this->getLogger()->info(TextFormat::RED."Error In Config!");
